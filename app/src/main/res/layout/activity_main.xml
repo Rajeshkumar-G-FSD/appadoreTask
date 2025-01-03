@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/orange" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/curve_layout"
+
+        app:layout_constraintTop_toBottomOf="@+id/appbarLayout">
+
+        <RelativeLayout   android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+          >
+            <!-- Timer Display -->
+            <TextView
+                android:id="@+id/timerTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/timer_bg_color"
+                android:padding="8dp"
+                android:text="00:10"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/timerTextView"
+                android:background="@android:color/darker_gray"
+                ></View>
+
+            <!-- Header -->
+            <TextView
+                android:id="@+id/headerTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="FLAGS CHALLENGE"
+                android:textColor="@color/flag_head_color"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                android:textStyle="bold" />
+
+            <!-- Schedule Label -->
+            <TextView
+                android:id="@+id/scheduleLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/headerTv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="24dp"
+                android:text="SCHEDULE"
+
+                android:textAllCaps="true"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/gameoverLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/headerTv"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:text="@string/tv_gameover"
+                android:paddingBottom="10dp"
+                android:layout_marginBottom="20dp"
+                android:visibility="gone"
+                android:textAllCaps="true"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/headerTv"
+                android:visibility="visible"
+                android:gravity="center"
+               android:id="@+id/scoreUpdateLayout"
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="50dp"
+                    android:text="@string/tv_score"
+                    android:visibility="visible"
+                    android:textAllCaps="true"
+                    android:textColor="@color/orange"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvscore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="50dp"
+                    android:text="@string/tv_gameover"
+                    android:visibility="gone"
+                    android:textAllCaps="true"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+            <!-- Number Pickers -->
+            <LinearLayout
+                android:id="@+id/timerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/scheduleLabel"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:gravity="center_horizontal|center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Hour"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/curve_timer_layout">
+
+                                    <EditText
+                                        android:id="@+id/hourEditText"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:background="@android:color/transparent"
+                                        android:gravity="center"
+                                        android:hint="0"
+                                        android:inputType="number"
+                                        android:maxLength="1"
+                                        android:textColor="#666666"
+                                        android:textSize="24sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:background="@drawable/curve_timer_layout">
+
+                                    <EditText
+                                        android:id="@+id/hourEditText1"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:background="@android:color/transparent"
+                                        android:gravity="center"
+                                        android:hint="0"
+                                        android:inputType="number"
+                                        android:maxLength="1"
+                                        android:textColor="#666666"
+                                        android:textSize="24sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Minute"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/curve_timer_layout">
+
+                                    <EditText
+                                        android:id="@+id/minuteEditText"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:background="@android:color/transparent"
+                                        android:gravity="center"
+                                        android:hint="0"
+                                        android:maxLength="1"
+                                        android:inputType="number"
+                                        android:textColor="#666666"
+                                        android:textSize="24sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:background="@drawable/curve_timer_layout">
+
+                                    <EditText
+                                        android:id="@+id/minuteEditText1"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:background="@android:color/transparent"
+                                        android:gravity="center"
+                                        android:hint="0"
+                                        android:maxLength="1"
+                                        android:inputType="number"
+                                        android:textColor="#666666"
+                                        android:textSize="24sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Second"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/curve_timer_layout"
+
+                                    >
+
+                                    <EditText
+                                        android:id="@+id/secsEditText"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:background="@android:color/transparent"
+                                        android:gravity="center"
+                                        android:hint="0"
+                                        android:maxLength="1"
+                                        android:inputType="number"
+                                        android:textColor="#666666"
+                                        android:textSize="24sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:background="@drawable/curve_timer_layout">
+
+                                    <EditText
+                                        android:id="@+id/secsEditText1"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:maxLength="1"
+                                        android:background="@android:color/transparent"
+                                        android:gravity="center"
+                                        android:hint="0"
+                                        android:inputType="number"
+                                        android:textColor="#666666"
+                                        android:textSize="24sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Hour Picker -->
+
+
+                <!-- Minute Picker -->
+
+
+                <!-- Second Picker -->
+
+            </LinearLayout>
+
+            <!-- Save Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/saveBtn"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/timerLayout"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/curve_timer_layout"
+                android:backgroundTint="@color/orange"
+                android:text="Save"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
+
+            <LinearLayout
+                android:id="@+id/scheduleLabelLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/headerTv"
+                android:layout_marginTop="40dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text="@string/tv_challenge_time"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tvDisplayTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:text="@string/tv_challenge_time"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="26sp"
+
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/questionAnswerlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/saveBtn"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+                    <LinearLayout
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/timer_bg_color"
+                    android:orientation="horizontal"
+                    >
+                <TextView
+                    android:id="@+id/tvquestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/question_bg"
+                    android:padding="8dp"
+                    android:text="1"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                </LinearLayout>
+                    <TextView
+                        android:id="@+id/tvQuestionTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginStart="10dp"
+                        android:gravity="center"
+                        android:text="@string/tv_question_title"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+
+                        />
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal"
+
+                >
+
+                <ImageView
+                    android:id="@+id/imgFlag"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

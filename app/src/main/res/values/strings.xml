@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FlagQuiz</string>
+    <string name="tv_challenge">Challenge</string>
+    <string name="tv_challenge_time">will start in</string>
+    <string name="tv_correct">Correct</string>
+    <string name="tv_wrong">Wrong</string>
+    <string name="tv_gameover">Game Over</string>
+    <string name="tv_score">Score :</string>
+    <string name="tv_question_title">Guess the Country from the Flag?</string>
+
+
+</resources>
