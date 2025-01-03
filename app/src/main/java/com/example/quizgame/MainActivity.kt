@@ -83,8 +83,6 @@ class MainActivity : AppCompatActivity(), CountryAdapter.OnItemClickListener{
 
         setUI()
 
-
-
         hourEditText!!.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
                 // No action needed before text change
@@ -430,7 +428,7 @@ class MainActivity : AppCompatActivity(), CountryAdapter.OnItemClickListener{
                         val countryName = countryObj.getString("country_name")
 
                         val countryId = countryObj.getInt("id")
-                        countries.add(Country(countryName, countryId))
+                        countries.add(Country(countryName, countryId, answerId))
                     }
                     (questions as ArrayList<Question>).add(Question(answerId, countries, countryCode))
                 }
